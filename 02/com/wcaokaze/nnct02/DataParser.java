@@ -1,4 +1,4 @@
-package com.wcaokaze.nnct01;
+package com.wcaokaze.nnct02;
 
 import java.io.IOException;
 import java.io.Reader;

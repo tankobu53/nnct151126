@@ -9,22 +9,13 @@ import java.util.Map;
 public class Main {
   private static final String SETTING_FILE_NAME = "setting.ini";
 
-  private Map<String, String> dataMap;
-  private Operator operator;
-  private int firstOperand;
-  private int secondOperand;
-
   public static void main(String... args) {
-    new Main().start();
-  }
-
-  private void start() {
-    dataMap = parseData();
+    Map<String, String> dataMap = parseData();
     if (dataMap == null) return;
 
-    operator      = getOperator(dataMap, "calc");
-    firstOperand  = getOperand (dataMap, "first");
-    secondOperand = getOperand (dataMap, "second");
+    Operator operator      = getOperator(dataMap, "calc");
+    int      firstOperand  = getOperand (dataMap, "first");
+    int      secondOperand = getOperand (dataMap, "second");
 
     if (operator      == null ||
         firstOperand  == -1   ||
@@ -36,7 +27,7 @@ public class Main {
     System.out.println();
 
     int result = operator.operate(firstOperand, secondOperand);
-    System.out.printf("%d %s %d = %d",
+    System.out.printf("%d %s %d = %d\n",
         firstOperand, operator.symbol, secondOperand, result);
   }
 
